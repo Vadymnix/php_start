@@ -55,4 +55,4 @@ function findItem(string $stringFind, $arrayBox):bool {
     return false;
 }
 
-findItem('Ключ', $box);
+findItem('Картина', $box);

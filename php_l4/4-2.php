@@ -21,7 +21,7 @@ function work(array $arg): array {
 }
 
 try{
-    print_r(work([]));
+    print_r(work($arrayNumber));
 }catch (InvalidArgumentException $error) {
     echo "ERROR in function work() -- " . $error->getMessage();
 }
