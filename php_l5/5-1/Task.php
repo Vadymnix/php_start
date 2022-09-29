@@ -1,8 +1,7 @@
 <?php
 require_once ("User.php");
 
-class Task
-{
+class Task {
     private string $description;
     private DateTime $dateCreated;
     private DateTime $dateUpdated;
