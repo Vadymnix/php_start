@@ -9,6 +9,23 @@ class Task {
     private int $priority = 0;
     private bool $isDone = false;
     private User $user;
+    private array $comments = [];
+
+    /**
+     * @return array
+     */
+    public function getComments(): array
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param array $comments
+     */
+    public function addComment($comment): void
+    {
+        $this->comments[] = $comment;
+    }
 
     public function __construct(User $user, string $description, int $priority) {
         $this-> description = $description;
