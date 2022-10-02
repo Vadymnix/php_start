@@ -1,64 +1,36 @@
 <?php
-class Product {
-    private string $title;
-    private float $price;
-    private array $components = [];
+require_once ("Product.php");
 
-    /**
-     * @param string $title
-     * @param float $price
-     */
-    public function __construct(string $title, float $price)
-    {
-        $this->title = $title;
-        $this->price = $price;
+class Cart {
+    private array $cartItems = [];
+
+    public function addItem(Product $product, int $count) {
+        $flag = false;
+        if(count($this->cartItems)) {
+            foreach ($this->cartItems as $key => $currentCount) {
+                if( $key === $product->getId()) {
+                    $flag = true;
+                    $this->cartItems[$key][1] += $count;
+                }
+            }
+        }
+
+        if(!$flag) {
+            $this->cartItems[$product->getId()] = [$product,$count];
+        }
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->title;
+    public function getItems():?array {
+        return $this->cartItems;
     }
 
-    /**
-     * @param string $title
-     */
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
-
-    /**
-     * @return float
-     */
-    public function getPrice(): float
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param float $price
-     */
-    public function setPrice(float $price): void
-    {
-        $this->price = $price;
-    }
-
-    /**
-     * @return Product
-     */
-    public function getComponents(): Product
-    {
-        return $this->components;
-    }
-
-    /**
-     * @param Product $components
-     */
-    public function setComponents(Product $components): void
-    {
-        $this->components = $components;
+    public function getAmount():float {
+        $sum = 0;
+        if(count($this->cartItems)) {
+            foreach ($this->cartItems as $item) {
+                $sum += $item[0]->getPrice() * $item[1];
+            }
+        }
+        return  $sum;
     }
 }
