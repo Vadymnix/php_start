@@ -4,10 +4,10 @@
 </head>
 <body>
 <h1><?=$pageHeader?></h1>
-<<?php if ($username !== null) : ?>
-    <p>Рады вас приветствовать, <?=$username?></p>
+<?php if ($userName !== null) : ?>
+    <p>Рады вас приветствовать, <?=$userName?></p>
 <?php else : ?>
-    <form>
+    <form method="post">
         <input type="text" name="username" placeholder="Введите ваше имя" />
         <input type="submit" value="Отправить" />
     </form>
