@@ -4,13 +4,13 @@
 </head>
 <body>
 <h1><?=$pageHeader?></h1>
-<?php if ($userName !== null) : ?>
-    <p>Рады вас приветствовать, <?=$userName?></p>
+<?php if ($username !== null) : ?>
+    <p>Рады вас приветствовать, <?=$username?></p>
+    <a href="?action=logout">Выйти</a>
 <?php else : ?>
     <form method="post">
         <input type="text" name="username" placeholder="Введите ваше имя" />
         <input type="submit" value="Отправить" />
     </form>
 <?php endif ?>
-
 </body>
