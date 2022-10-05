@@ -1,6 +1,10 @@
 <?php
 require_once ('model/UserProvider.php');
 
+if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'logout') {
+    unset($_SESSION['username']);
+}
+
 $error = null;
 if (isset($_POST['username'], $_POST['password'])) {
     ['username' => $username, 'password' => $password] = $_POST;
@@ -15,7 +19,7 @@ if (isset($_POST['username'], $_POST['password'])) {
     }
 
     if (isset($_SESSION['user'])) {
-        header('Location: /');
+        header('Location: /?controller=home');
     }
 }
 

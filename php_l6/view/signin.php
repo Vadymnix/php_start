@@ -12,14 +12,10 @@
             margin: auto;
         }
         #username {
-            margin-bottom: -1px;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
+            margin-bottom: 10px;
         }
         #password {
-            margin-bottom: 10px;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
+            margin-bottom: 20px;
         }
     </style>
 </head>

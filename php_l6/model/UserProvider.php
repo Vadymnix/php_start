@@ -1,4 +1,6 @@
 <?php
+require_once ("User.php");
+
 class UserProvider {
     private array $accounts = [
         'geekbrains' => 'password123'
