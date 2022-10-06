@@ -28,6 +28,10 @@
         <input type="text" id="action" name="action" value="logout" class="form-control mt-3">
         <input type="text" id="controller" name="controller" value="security" class="form-control mt-3">
     </form>
+    <div class="mt-5 mt-md-5 col-lg-4 col-md-5 col-sm-8">
+        <a href="/?controller=task" class="w-75 btn btn-lg btn-primary mt-1">Задачи</a>
+    </div>
+
 <?php else : ?>
     <form method="post"  class="sign-in-form mt-5 mt-md-5 col-lg-4 col-md-5 col-sm-8">
         <h3>Вам надо авторизироваться в системе</h3>
