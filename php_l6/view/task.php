@@ -17,16 +17,33 @@
         #password {
             margin-bottom: 20px;
         }
+
+        #controller, #action{
+            visibility: hidden;
+        }
+
+        form {
+            display: block;
+        }
     </style>
 </head>
 <body>
 <div class="container text-center">
     <div class="row">
         <form method="post" class="sign-in-form mt-5 mt-md-5 col-lg-4 col-md-5 col-sm-8">
+            <?php
+
+            ?>
+        </form>
+        <form method="post" class="sign-in-form mt-5 mt-md-5 col-lg-4 col-md-5 col-sm-8">
             <h3>Задачи</h3>
             <label for="username" class="visually-hidden">Задача</label>
-            <input type="text" id="task" name="task" class="form-control mt-3" placeholder="описание задачи">
-            <input type="text" id="controller" name="controller" value="task" class="form-control mt-3">
+            <input type="text" id="task" name="task"
+                   class="form-control mt-3" placeholder="описание задачи"
+                   minlength="10"
+            >
+            <input type="text" id="controller" name="controller" value="task">
+            <input type="text" id="action" name="action" value="addtask">
             <button class="w-75 btn btn-lg btn-primary mt-1" type="submit">Добавить задачу</button>
             <div class="class="mt-5 mt-md-5 col-lg-4 col-md-5 col-sm-8"">
                 <a href="/" class="w-75 btn btn-lg btn-primary mt-1">Главная</a>

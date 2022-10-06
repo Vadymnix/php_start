@@ -2,13 +2,24 @@
 require_once ("Task.php");
 
 class TaskProvider {
-    private array $listTask = [];
 
     function getUndoneList():?array {
-        return [];
+        $newArr = [];
+        foreach ($_SESSION['tasklist'] as $task) {
+            var_dump($task);
+            echo "<br>----------------------------<br>";
+            //echo $task->isDone();
+            echo "<br>----------------------------<br>";
+//            if(!$task->isDone()) {
+//                echo "undone";
+//                $newArr[] = $task;
+//            }
+        }
+
+        return $_SESSION['tasklist'] ?? null;
     }
 
     function addTask(Task $task):void {
-        $this->listTask[] = $task;
+        $_SESSION['tasklist'][] = $task;
     }
 }
