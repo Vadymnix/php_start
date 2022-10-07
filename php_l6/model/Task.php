@@ -6,16 +6,16 @@ class Task {
     /**
      * @param string $description
      */
-    public function __construct(string $description)
+    public function __construct(string $description, bool $isDone)
     {
         $this->description = $description;
-        $this->isDone = false;
+        $this->isDone = $isDone;
     }
 
     /**
      * @return bool
      */
-    public function getIsDone(): bool
+    public function isDone(): bool
     {
         return $this->isDone;
     }

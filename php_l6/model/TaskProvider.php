@@ -6,20 +6,21 @@ class TaskProvider {
     function getUndoneList():?array {
         $newArr = [];
         foreach ($_SESSION['tasklist'] as $task) {
-            var_dump($task);
-            echo "<br>----------------------------<br>";
-            //echo $task->isDone();
-            echo "<br>----------------------------<br>";
-//            if(!$task->isDone()) {
-//                echo "undone";
-//                $newArr[] = $task;
-//            }
+            if($task['isdone'] === false) {
+                $newArr[] = new Task($task['description'], $task['isdone']);
+            }
         }
-
-        return $_SESSION['tasklist'] ?? null;
+        return $newArr ?? null;
     }
 
-    function addTask(Task $task):void {
-        $_SESSION['tasklist'][] = $task;
+    function addTask(string $text):void {
+        $_SESSION['tasklist'][] = [
+            "description" => 'PIIIIIIIIIIIIIIIIIIIIIIDAAAAAAAAAAAAAAAAAAAAAAAAARRRRRRRRRRRRRRRRRRRR',
+            "isdone" => true
+        ];
+        $_SESSION['tasklist'][] = [
+                                    "description" => $text,
+                                    "isdone" => false
+                                    ];
     }
 }

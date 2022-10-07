@@ -25,6 +25,16 @@
         form {
             display: block;
         }
+
+        span {
+            padding: 5px;
+        }
+
+        .task__item {
+            padding: 10px;
+            background-color: lightblue;
+            border: 1px solid darkgrey;
+        }
     </style>
 </head>
 <body>
@@ -32,7 +42,16 @@
     <div class="row">
         <form method="post" class="sign-in-form mt-5 mt-md-5 col-lg-4 col-md-5 col-sm-8">
             <?php
-
+            $provider = new TaskProvider();
+            $arrTask = $provider->getUndoneList();
+            foreach ($arrTask as $task) {
+            ?>
+            <div class="task__item">
+                <span><?= $task->getDescription() ?></span>
+                <a href="/?controller=task&action=delete&id=А НЕТУ ID" class="w-75 btn btn-lg btn-primary mt-1">Выполнить</a>
+            </div>
+            <?php
+            } //end foreach
             ?>
         </form>
         <form method="post" class="sign-in-form mt-5 mt-md-5 col-lg-4 col-md-5 col-sm-8">
