@@ -1,4 +1,5 @@
 <?php
+require_once 'model/UserProvider.php';
 $pdo = require_once ("db.php");
 
 $pdo->exec('CREATE TABLE users (
@@ -8,3 +9,8 @@ $pdo->exec('CREATE TABLE users (
     password VARCHAR(100) NOT NULL 
 )');
 
+$user = new User('geekbrains');
+$user->setName('GeekBrains PHP');
+
+$userProvider = new UserProvider($pdo);
+$userProvider->registerUser($user, '123');

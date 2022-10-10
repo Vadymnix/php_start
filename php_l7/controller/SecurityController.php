@@ -1,5 +1,6 @@
 <?php
 require_once ('model/UserProvider.php');
+$pdo = require_once ('db.php');
 
 if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'logout') {
     unset($_SESSION['username']);
@@ -9,7 +10,7 @@ $error = null;
 if (isset($_POST['username'], $_POST['password'])) {
     ['username' => $username, 'password' => $password] = $_POST;
 
-    $userProvider = new UserProvider();
+    $userProvider = new UserProvider($pdo);
     $user = $userProvider->getByUsernameAndPassword($username, $password);
 
     if ($user === null) {
