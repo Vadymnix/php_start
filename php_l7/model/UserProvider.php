@@ -8,23 +8,25 @@ class UserProvider {
         $this->pdo = $pdo;
     }
 
-    public function registerUser(User $user, string $plainPassword):bool {
+    public function registerUser(User $user, string $plainPassword):?User {
         $statement = $this->pdo->prepare(
             'INSERT INTO users(name, username, password) VALUES(:name, :username, :password)'
         );
 
-        return $statement->execute([
+        $statement->execute([
             'name' => $user->getName(),
             'username' => $user->getUsername(),
             'password' => md5($plainPassword)
-       ]);
+        ]);
+
+        return $this->getByUsernameAndPassword($user->getUsername(), $user->getName(), $plainPassword);
     }
 
-    public function getByUsernameAndPassword(string $username, string $password): ?User
+    public function getByUsernameAndPassword(string $username, string $name, string $password): ?User
     {
         //ЗАЧЕМ ЛИМИТ 1 ? !!!!
         $statement = $this->pdo->prepare(
-            'SELECT id, name, username, 
+            'SELECT name, username 
                    FROM users
                    WHERE username = :username AND password = :password LIMIT 1'
         );
@@ -33,6 +35,6 @@ class UserProvider {
            'password' => md5($password),
         ]);
 
-        return $statement->fetchObject(User::class, [$username])?:null;
+        return $statement->fetchObject(User::class, [$username, $name])?:null;
     }
 }

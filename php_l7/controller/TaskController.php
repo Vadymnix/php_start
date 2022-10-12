@@ -1,5 +1,5 @@
 <?php
-//$pdo = require_once ('db.php');
+//$pdo = require_once ('db.php'); //Почему не работает это подключение?!!!
 require_once ('model/TaskProvider.php');
 $pdo = new PDO(
     'sqlite:database.db',

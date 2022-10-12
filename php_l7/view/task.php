@@ -48,7 +48,7 @@
         <form method="post" class="sign-in-form mt-5 mt-md-5 col-lg-4 col-md-5 col-sm-8">
             <?php
             require_once ('model/TaskProvider.php');
-            //$pdo = require_once ('db.php');
+            //$pdo = require_once ('db.php'); //Почему не работает это подключение?!!!
             $pdo = new PDO(
                 'sqlite:database.db',
                 null,

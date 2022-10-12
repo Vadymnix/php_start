@@ -16,8 +16,7 @@ $pdo->exec(
     isDone TINYINT NOT NULL DEFAULT 0
 )');
 
-$user = new User('geekbrains');
-$user->setName('GeekBrains PHP');
+$user = new User('geekbrains', 'GeekBrains PHP');
 
 $userProvider = new UserProvider($pdo);
 $userProvider->registerUser($user, '123');
