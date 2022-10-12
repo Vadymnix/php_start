@@ -9,6 +9,13 @@ $pdo->exec('CREATE TABLE users (
     password VARCHAR(100) NOT NULL 
 )');
 
+$pdo->exec(
+    'CREATE TABLE tasks (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    description VARCHAR(200) NOT NULL ,
+    isDone TINYINT NOT NULL DEFAULT 0
+)');
+
 $user = new User('geekbrains');
 $user->setName('GeekBrains PHP');
 

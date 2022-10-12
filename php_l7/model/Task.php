@@ -1,15 +1,25 @@
 <?php
 class Task {
+    private int $id;
     private bool $isDone;
     private string $description;
 
     /**
      * @param string $description
      */
-    public function __construct(string $description, bool $isDone)
+    public function __construct(int $id, string $description, bool $isDone)
     {
+        $this->id = $id;
         $this->description = $description;
         $this->isDone = $isDone;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     /**
